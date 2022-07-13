@@ -15,10 +15,19 @@ public class QueryProcessor {
            return "thommi";
         } else if (query.contains("plus")) {
             //what is 2 plus 0
-            String first = query.substring(8, 1);
-            String second = query.substring(13, 1);
-            int result = Integer.parseInt(first) + Integer.parseInt(second);
-            return String.valueOf(result);
+            String[] wordlist = query.split(" ");
+            int sum = 0;
+            for (String word : wordlist) {
+                try{
+                    int intOfWord = Integer.parseInt(word);
+                    sum += intOfWord;
+                } catch (Exception e) {
+                    //
+                }
+
+            }
+            return String.valueOf(sum);
+
         } else { // TODO extend the programm here
             return "";
         }
