@@ -27,6 +27,21 @@ public class QueryProcessor {
 
             }
             return String.valueOf(sum);
+        } else if (query.contains("largest")) {
+            //which of the following numbers is the largest: 141, 473, 71, 43
+            String[] wordList = query.split(" ");
+            int largest = 0;
+            for (String word : wordList) {
+                try{
+                    int intOfWord = Integer.parseInt(word);
+                    if (intOfWord > largest) {
+                        largest = intOfWord;
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+            return String.valueOf(largest);
 
         } else { // TODO extend the programm here
             return "";
